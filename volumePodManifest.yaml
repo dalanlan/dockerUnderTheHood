@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: storage
+spec:
+    containers:
+      - name: redis
+        image: dockerfile/redis
+        volumeMounts:
+            # name字段必须与下面的volumes中的名字匹配
+          - name: redis-persistent-storage
+            # 这个volume在容器内的挂载点路径
+            mountPath: /data/redis
+    volumes:
+      - name: redis-persistent-storage
+        emptyDir: {}

@@ -1,0 +1,38 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": string,
+    "labels": {
+      "name": string
+    }
+  },
+  "spec": {
+    "containers": [{
+      "name": string,
+      "image": string,
+      "ports": [{
+        "name": string,
+        "containerPort": int,
+        "hostPort": int,
+        "protocol": string
+      }],
+      "volumeMounts": [{
+        "name": string,
+        "readOnly": bool,
+        "mountPath": string
+      }],
+      "env": [{
+        "name": string,
+        "value": string
+      }],
+      "command": [string],
+      "workingDir": string
+    }],
+    "restartPolicy": string,
+    "volumes": [{
+      "name": string,
+      hostPath | emptyDir | gitRepo | ...
+    }]
+  }
+}
